@@ -17,7 +17,7 @@ def get_bs(author, page=1):
     soup = BeautifulSoup(r.content, 'html5lib')
     # print(f'第{page}页：')
     data_print(soup)
-    # if soup.select(f'a[href="https://www.cnblogs.com/{author}/default.html?page={page+1}"]'):  # 如果有下一页的链接
+    # if soup.select(f'a[href="https://www.cnblogs.com/latin-xiao-mao/default.html?page={page+1}"]'):  # 如果有下一页的链接
     #     get_bs(author, page+1)
 
 
@@ -34,11 +34,11 @@ def data_print(soup):  # 这里可以优化显示文章链接啥的
                 for aritle in day.select('a.postTitle2'): # 每天可能有多篇文章
                         print('- ',date.text, ' ', '[', aritle.get_text().strip(), '](', aritle.get('href'), ')', sep='')
 
-        print('\n:point_right: **[阅读更多](https://www.cnblogs.com/realzhaijiayu/p/)**')
+        print('\n:point_right: **[阅读更多](https://www.cnblogs.com/latin-xiao-mao/p/)**')
 
-        print('  :house: **[仓库索引](https://github.com/realzhaijiayu/box)**')
+        print('  :house: **[仓库索引](https://github.com/latin-xiao-mao/box)**')
         sys.stdout = original_stdout  # Reset the standard output to its original value
 
 
 if __name__ == "__main__":
-    get_bs('realzhaijiayu')
+    get_bs('latin-xiao-mao')
